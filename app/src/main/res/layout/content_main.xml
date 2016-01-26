@@ -12,6 +12,7 @@
     tools:context="shiwei.lab2.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <!-- define a Linear Layout-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -21,6 +22,7 @@
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
 
+        <!--define buttons and set up initial background images and tags-->
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -36,10 +38,10 @@
             android:background="@drawable/x"
             android:onClick="onClick"
             android:tag="@string/int1"/>
-
-
     </LinearLayout>
 
+    <!-- define a second Linear Layout, which is relative
+    to the first Linear Layout-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

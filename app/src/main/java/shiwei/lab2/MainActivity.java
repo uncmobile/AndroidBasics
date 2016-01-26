@@ -2,8 +2,6 @@ package shiwei.lab2;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -48,12 +46,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Function called when user click on the ImageButton. ImageButton passed
+     * to the function as a view object.
+     * @param v View object
+     */
     public void onClick(View v){
         TextView textview = (TextView) findViewById(R.id.textView);
 
         ImageButton b = (ImageButton) findViewById(v.getId());
 
+        //use for debug demo
         int a = 10;
+
+         //display which button clicked on testfield object
         if(v.getId() == R.id.imageButton){
             textview.setText("Button 1");
         }
@@ -61,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
             textview.setText("Button 2");
         }
 
-        if(v.getTag().equals("1")){
+        //change background image and tag of the button clicked
+        if(v.getTag().equals(getString(R.string.int1))){
             b.setBackgroundResource(R.drawable.signcheck);
             v.setTag(getString(R.string.int2));
         }
@@ -70,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             v.setTag(getString(R.string.int1));
         }
 
+        //if two buttons have the same image, show Toast
         ImageButton b1 = (ImageButton) findViewById(R.id.imageButton);
         ImageButton b2 = (ImageButton) findViewById(R.id.imageButton2);
         if(b1.getTag().equals(b2.getTag())){
@@ -78,12 +86,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Function to show Toast message by passing the text
+     * @param s String for display
+     */
     public void showPop(String s){
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, s, duration);
         toast.show();
-
     }
 }
